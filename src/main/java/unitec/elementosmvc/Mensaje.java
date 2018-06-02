@@ -5,6 +5,8 @@
  */
 package unitec.elementosmvc;
 
+import java.time.LocalDate;
+import org.springframework.data.annotation.Id;
 /**
  *
  * @author T-107
@@ -14,12 +16,20 @@ public class Mensaje {
     @Id
     String id;
     
+    private LocalDate fecha;
     String cuerpo;
 
-    public Mensaje(String cuerpo) {
+   public Mensaje(LocalDate fecha,String cuerpo) {
+        this.fecha = fecha;
         this.cuerpo = cuerpo;
     }
-
+   public Mensaje(String id, LocalDate fecha, String cuerpo) {
+        this.id = id;
+        this.fecha = fecha;
+        this.cuerpo = cuerpo;
+    }
+    
+    
     public Mensaje() {
     }
 
@@ -38,4 +48,10 @@ public class Mensaje {
     public void setCuerpo(String cuerpo) {
         this.cuerpo = cuerpo;
     }
+     @Override
+    public String toString() {
+        return "Mensaje{" + "id=" + id + ", fecha=" + fecha + ", cuerpo=" + cuerpo + '}';
+    }
+    
 }
+
