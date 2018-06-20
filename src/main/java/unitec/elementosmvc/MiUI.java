@@ -8,11 +8,14 @@ package unitec.elementosmvc;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
-import java.awt.TextField;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -21,7 +24,7 @@ import java.awt.TextField;
 @SpringUI
 public class MiUI extends UI{
     
-    @AutoWired RepositorMensaje repoMensa;
+    @Autowired RepositorioMensaje repoMensa;
 
     @Override
     protected void init(VaadinRequest request) {
@@ -42,7 +45,7 @@ public class MiUI extends UI{
        //Guardamos
        repoMensa.save(new Mensaje(cuerpo));
        //Le comunicamos al usuario con un mensaje que se guardo
-       Notification.show("Mensaje guardado",Notification.type.ERROR_MESSAGE);
+       Notification.show("Mensaje guardado",Notification.Type.ERROR_MESSAGE);
     });
     
 //Caso:Busacar todos

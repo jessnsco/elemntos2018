@@ -19,6 +19,10 @@ public class Mensaje {
     private LocalDate fecha;
     String cuerpo;
 
+    public Mensaje(String cuerpo) {
+        this.cuerpo = cuerpo;
+    }
+
    public Mensaje(LocalDate fecha,String cuerpo) {
         this.fecha = fecha;
         this.cuerpo = cuerpo;
